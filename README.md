@@ -1,5 +1,5 @@
 # 🎓 Complete College Management & Learning Portal
-
+https://gentechapp.vercel.app/
 A full-stack, enterprise-grade College Management and Learning System built with **Node.js**, **Express**, and **Supabase (PostgreSQL & Storage)**.
 
 ---
