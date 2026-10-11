@@ -1,0 +1,8 @@
+GenTech final patch
+- Responsive desktop/mobile splash screens using the supplied GenTech artwork.
+- 5-second splash duration with fade-out, zoom, light-sweep and loading-bar glow animations.
+- Safe navigation switching for Student, Faculty, HOD, Coordinator and Director.
+- Old page is replaced immediately with a loading state.
+- Failed page loads show a Retry button instead of leaving stale content visible.
+- Slow previous navigation requests are isolated by replacing the content node, preventing stale responses from repainting the selected page.
+- Existing Gemini AI integration from the working AI build is preserved.

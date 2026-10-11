@@ -1,0 +1,22 @@
+WHAT WAS WRONG
+1. server.js loaded data/store.js - a local-JSON store that only used Supabase when
+   config.isAvailable() was true. That flag was only set by checkConnection(), which never
+   runs on Vercel -> everything silently went to local JSON. Attendance, exams, results,
+   DPP, notifications etc. never touched Supabase at all, even locally.
+2. File uploads wrote to public/uploads (read-only on Vercel) instead of Supabase Storage.
+3. Faculty "Submit Register" only showed a toast; student UI hardcoded one demo student.
+4. 03_supabase_source_of_truth.sql indexed attendance(attendance_date) but the column is "date".
+
+WHAT CHANGED
+- server.js -> data/store-supabase.js (Supabase only; errors are returned, never swallowed).
+- config/supabase.js -> client available immediately; no isAvailable gating.
+- Uploads (notes, assignments, submissions, doubts, notice images) -> Supabase Storage bucket "uploads".
+- Attendance register actually saves; student/faculty UIs use the logged-in user.
+- New `marks` table for results. New GET /api/health/supabase.
+- SQL hardening: removed public read of users (password hashes) and anon write policies.
+
+DEPLOY STEPS
+1. Supabase SQL Editor: run supabase/03_supabase_source_of_truth.sql  (creates bucket, marks table, indexes, tightens RLS)
+2. npm run seed:marks   (optional - copies demo marks into Supabase)
+3. Vercel env vars: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY (server-only), GEMINI_API_KEY
+4. Open /api/health/supabase -> expect success:true, database:"connected", storageBucket:"ready"

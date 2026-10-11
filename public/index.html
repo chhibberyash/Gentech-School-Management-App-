@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GenTech College - Complete College Management & Learning Portal</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Custom Styling & Role Themes -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/gentech-splash.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#f59e0b',
+              indigo: '#6366f1',
+              emerald: '#10b981',
+              teal: '#14b8a6',
+              purple: '#8b5cf6'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#090d16] text-slate-100 antialiased selection:bg-purple-500 selection:text-white">
+
+  <!-- Main Application Shell -->
+  <div id="app-root">
+    <div class="min-h-screen flex items-center justify-center text-slate-400">
+      <i class="fas fa-spinner fa-spin text-3xl mr-3 text-purple-500"></i>
+      <span class="text-sm font-medium">Initializing College Management Platform...</span>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Client Scripts -->
+  <script src="/js/gentech-splash.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/ui-director.js"></script>
+  <script src="/js/ui-hod.js"></script>
+  <script src="/js/ui-faculty.js"></script>
+  <script src="/js/ui-coordinator.js"></script>
+  <script src="/js/ui-student.js"></script>
+  <script src="/js/app.js"></script>
+
+</body>
+</html>

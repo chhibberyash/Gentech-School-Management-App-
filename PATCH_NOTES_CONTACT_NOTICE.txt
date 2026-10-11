@@ -1,0 +1,13 @@
+GenTech additive update
+
+Added:
+1. Contact Us page in navigation for Director, HOD, Faculty, Coordinator and Student.
+2. Notice image upload for Director, HOD and Coordinator posting forms.
+3. Notice images are displayed in Director, HOD, Faculty, Coordinator and Student notice boards.
+4. Clicking a notice image opens a larger preview.
+5. Notice image upload uses the existing server upload system.
+6. Notice image URL is persisted through the existing notices content field marker, so no mandatory database schema migration is required.
+
+Important:
+- Keep your existing .env file from the working project. It is intentionally not included in the output ZIP.
+- Do not expose Gemini/Supabase secrets publicly.
